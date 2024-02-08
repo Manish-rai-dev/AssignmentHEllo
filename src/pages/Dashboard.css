@@ -151,7 +151,7 @@
 }
 
 .nav__links li a {
-    color: var(--color-white);
+    color: var(--color-sidebar);
     font-family: var(--ff-mont);
     font-size: var(--fs-m);
     letter-spacing: 1px;
@@ -162,7 +162,7 @@
 }
 
 .nav__links li a:hover {
-    text-decoration: underline;
+    color:var(--color-blue);
 }
 
 .nav__links li a i {
@@ -777,4 +777,10 @@
     }
 
     
+}
+.sidebar__container {
+    margin-top: -2%;
+    margin-left: -2%;
+    background:#fff ;
+    color: grey;
 }

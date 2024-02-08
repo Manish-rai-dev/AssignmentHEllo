@@ -1,13 +1,14 @@
 /* ========SignIn-Page-Style's======== */
 .signin__page__container {
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     background:  #605BFF;
     background: linear-gradient(100deg,  #605BFF 45%, rgba(248, 250, 255, 1) 45%);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 3rem;
+    /* overflow-y: hidden; */
 }
 
 .logo {
@@ -40,7 +41,7 @@
 
 /* Socials-Styles */
 .socials__wrapper {
-    margin-left: 12vw;
+    margin-left: 9vw;
 }
 
 .socials__links {
@@ -171,8 +172,9 @@ label {
     margin-top: 2rem;
 }
 
-.form__footer a {
+.form__footer span {
     color: var(--color-link);
+    cursor:pointer
 }
 
 .headingTxt{
@@ -201,6 +203,15 @@ label {
     height: 30px;
     width: auto;
 }
+.form__footer {
+    text-align: center;
+  }
+  
+  .form__footer span {
+    color: #007bff; /* Default color for "Register here" */
+    cursor: pointer;
+  }
+  
 
 @media screen and (max-width:1350px)
 {
@@ -218,6 +229,17 @@ label {
 
 /* ============Media-Queries-For-Tablets============ */
 @media screen and (max-width: 990px) {
+    .signin__page__container {
+        width: 100%;
+        /* height: 90vh; */
+        background: #605BFF;
+        background: linear-gradient(100deg, #605BFF 45%, rgba(248, 250, 255, 1) 45%);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 3rem;
+    }
+
     .imageContainr{
         display: none;
     }
@@ -280,8 +302,9 @@ label {
     }
 
     .form__footer {
-        color: var(--color-white);
+        /* color: var(--color-white); */
     }
+   
 
     .btn__primary {
         background-color: var(--color-white);
@@ -311,6 +334,22 @@ label {
         padding: 1rem;
         background: none;
     }
+ 
+    
+      .form__footer :first-of-type {
+        color: #007bff; /* Grey color for "Don't have an account?" */
+      }
+      .form__footer span{
+        display: block;
+        margin-top: 5px; 
+        cursor:pointer;
+      /* Adjust as needed */
+      }
+      .socials__links li a {
+        filter: grayscale(100%) contrast(200%) brightness(80%);
+        font-size: var(--fs-icons);
+    }
+      
 
 }
 .fontSign{
@@ -320,4 +359,22 @@ label {
 }
 .sign_to_ur_acc{
     font-weight: 400;
+}
+@media screen and (max-width:450px)
+{
+    .signin__page__container{
+        padding: 2rem;
+    }
+    .socials__links{
+        
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    gap: 2rem;
+
+    }
+    .socials__links li a {
+        filter: grayscale(100%) contrast(200%) brightness(80%);
+        font-size: var(--fs-mobile-icons);
+    }
 }

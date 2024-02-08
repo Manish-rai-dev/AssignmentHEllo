@@ -3,12 +3,12 @@ import "../pages/SignIn.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { useNavigate } from 'react-router-dom';
 const Form = () => {
   const { loginWithRedirect } = useAuth0();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate=useNavigate();
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
@@ -87,9 +87,9 @@ const Form = () => {
 
       <p className="form__footer">
         Don't have an account?{" "}
-        <a href="http://" target="_blank" rel="noopener noreferrer">
+        <span  onClick={()=>navigate("/signup")}>
           Register here
-        </a>
+        </span>
       </p>
 
       <ToastContainer />

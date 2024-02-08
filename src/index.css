@@ -16,7 +16,7 @@ html {
     --color-dark-shade: #eaeaea;
 
     --color-link: #346bd4;
-
+    --color-sidebar:#9A9AA9;
     --text-light-dark: #858585;
 
     /* fonts */
@@ -32,6 +32,7 @@ html {
     --fs-xl: 2.8rem;
     --fs-xxl: 3.2rem;
     --fs-icons: 4.2rem;
+    --fs-mobile-icons: 3.6rem;
 
     /* logo-font-size */
     --fs-vl: 7.2rem;
