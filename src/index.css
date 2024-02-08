@@ -1,13 +1,121 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* -----------------Google-Fonts----------------- */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,900&family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* -----------------Variable-Styles-Colors-Fonts...----------------- */
+html {
+    font-size: 10px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+    /* colors */
+    --color-white: #fff;
+    --color-off-white: #f8faff;
+    --color-black: #000;
+    --color-blue:  #605BFF;
+    --color-light-dark: #f5f5f5;
+    --color-dark-shade: #eaeaea;
+
+    --color-link: #346bd4;
+
+    --text-light-dark: #858585;
+
+    /* fonts */
+    --ff-mont: 'Montserrat', sans-serif;
+    --ff-poppins: 'Poppins', sans-serif;
+    --ff-lato: 'Lato', sans-serif;
+
+    /* Font-sizes */
+    --fs-xs: 1.33rem;
+    --fs-s: 1.6rem;
+    --fs-m: 1.8rem;
+    --fs-l: 2.4rem;
+    --fs-xl: 2.8rem;
+    --fs-xxl: 3.2rem;
+    --fs-icons: 4.2rem;
+
+    /* logo-font-size */
+    --fs-vl: 7.2rem;
+    --lh-vl: 8.7rem;
+}
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: var(--color-black);
+    background-color: var(--color-off-white);
+    font-family: var(--ff-lato);
+    font-size: var(--fs-s);
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0px -7px;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 990px) {
+    :root {
+        /* colors */
+        --color-white: #fff;
+        --color-off-white: #f8faff;
+        --color-black: #000;
+        --color-blue: #3c7fef;
+        --color-light-dark: #f5f5f5;
+        --color-dark-shade: #eaeaea;
+
+        --color-link: #346bd4;
+
+        --text-light-dark: #858585;
+
+        /* fonts */
+        --ff-mont: 'Montserrat', sans-serif;
+        --ff-poppins: 'Poppins', sans-serif;
+        --ff-lato: 'Lato', sans-serif;
+
+        /* Font-sizes */
+        --fs-xs: 1.2rem;
+        --fs-s: 1.5rem;
+        --fs-m: 1.6rem;
+        --fs-l: 2rem;
+        --fs-xl: 2.2rem;
+        --fs-xxl: 3rem;
+        --fs-icons: 3.5rem;
+
+        /* logo-font-size */
+        --fs-vl: 5.5rem;
+        --lh-vl: 6rem;
+    }
 }
