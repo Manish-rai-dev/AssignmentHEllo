@@ -1,34 +1,76 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "../pages/SignIn.css";
-import { useAuth0 } from "@auth0/auth0-react";
+import {auth,provider} from "../firebase";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import {signInWithPopup} from "firebase/auth";
+
 const Form = () => {
-  const { loginWithRedirect } = useAuth0();
+  const [value,setValue] = useState('')
+
+  const loginWithRedirect =()=>{
+    signInWithPopup(auth,provider).then((data)=>{
+      setValue(data.user.email)
+      localStorage.setItem("email",data.user.email)
+  })
+  }
+  useEffect(()=>{
+    setValue(localStorage.getItem('email'))
+})
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate=useNavigate();
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
 
+
+  const validateForm = (email, password, confirmPassword) => {
     // Email validation
-    if (!validateEmail(email)) {
-      toast.error("Invalid email address");
-      return;
+  if (!validateEmail(email)) {
+        return {
+            isValid: false,
+            message: "Invalid email address"
+        };
     }
 
     // Password validation
     const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+}{"':;?/>.<,])(?=.*[^\s]).{8,}$/;
     if (!passwordRegex.test(password)) {
-      toast.error("Password must contain at least one uppercase letter, one lowercase letter, one numeric digit, one special character, and be at least 8 characters long");
-      return;
+        return {
+            isValid: false,
+            message: "Password must contain at least one uppercase letter, one lowercase letter, one numeric digit, one special character, and be at least 8 characters long"
+        };
     }
 
-    // If validation passes, you can proceed with form submission
-    // For example:
-    // submitForm(email, password);
-  };
+
+    // If all validations pass
+    return {
+        isValid: true,
+        message: ""
+    };
+};
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    const { isValid, message } = validateForm(email, password);
+    
+    if (!isValid) {
+        toast.error(message);
+        return;
+    }
+
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        console.log(userCredential);
+        const user = userCredential.user;
+        localStorage.setItem('token', user.accessToken);
+        localStorage.setItem('user', JSON.stringify(user));
+        navigate("/dashboard");
+    } catch (error) {
+        console.error(error);
+    }
+};
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

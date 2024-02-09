@@ -1,3 +1,5 @@
+
+
 /* -----------------Google-Fonts----------------- */
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,900&family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
@@ -18,7 +20,11 @@ html {
     --color-link: #346bd4;
     --color-sidebar:#9A9AA9;
     --text-light-dark: #858585;
-
+    --text-light-grey: rgb(153, 156, 160);
+    --link-color: rgb(52, 107, 212);
+    --text-alert-color: rgb(211, 48, 48);
+    --accent-color: rgb(96, 91, 255);
+    --text-primary-color: rgb(0, 0, 0);
     /* fonts */
     --ff-mont: 'Montserrat', sans-serif;
     --ff-poppins: 'Poppins', sans-serif;

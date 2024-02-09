@@ -1,10 +1,15 @@
 import {useState} from "react";
 import "../pages/Dashboard.css";
-import { useAuth0 } from "@auth0/auth0-react";
 import Hamburger from "../assets/hamburger.svg";
+
+import bell from "../assets/Bell.svg";
+import { signOut } from 'firebase/auth';
+import { auth } from '../firebase';
+import { useNavigate } from "react-router-dom";
+import user from "../assets/user.svg";
 const Dash =()=>
 {
-    const { user, logout, isAuthenticated } = useAuth0();
+    
     const [isActive, setIsActive] = useState(false);
 
     const toggleSidebar = () => {
@@ -12,34 +17,49 @@ const Dash =()=>
       sidebarContainer?.classList.toggle("active"); // Use optional chaining
       setIsActive(!isActive);
   };
+  const user = JSON.parse(localStorage.getItem('user'));
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+    }
+  }
     return (
       <div className="dash__header__bar">
-      <button className="menu__toggle" onClick={toggleSidebar}>
-      <i className={`ri-menu-4-line ${isActive ? "active" : ""}`}>
-          <img src={Hamburger} alt="navMenu" />
-      </i>
-  </button>
+
         <h2 className="dahsboard">Upload CSV</h2>
   
         <div className="header__right">
          
-  
+
           <button className="bell__icon">
-            <i className="ri-notification-2-line"></i>
+           <img src={bell} alt="bell Icon"  className="ri-notification-2-line"/>
+         
           </button>
   
           <div className="profile__icon">
-            {isAuthenticated && <img src={user.picture} alt="userimage" />}
+           <img src={user} alt="userimage"/>
   
             <ul
               className="profile__dropdown"
             >
-              <li>{user?.name}</li>
+             
               <li>
-                <button onClick={logout}>Log Out</button>
+                <button onClick={handleLogout} >Log Out</button>
               </li>
             </ul>
           </div>
+          <button className="menu__toggle" onClick={toggleSidebar}>
+          <i className={`ri-menu-4-line ${isActive ? "active" : ""}`}>
+              <img src={Hamburger} className="hamburger" alt="navMenu" />
+          </i>
+      </button>
 
         </div>
       </div>

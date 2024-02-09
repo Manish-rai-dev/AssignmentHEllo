@@ -4,8 +4,12 @@ import Social from '../components/Social';
 import Logo from "../assets/LoginLogo.svg";
 import Circle from "../assets/Logo.svg";
 import MobileLogo from "../assets/MobileViewLogo.svg";
-import SignUpForm from '../components/SignUpForm'
+import SignUpForm from '../components/SignUpForm';
+
 const SingUp = () => {
+
+
+
     return (
         <main>
         <a href="index.html" className='logo'>
