@@ -134,7 +134,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 20px;
+
     background: linear-gradient(180deg, #4285F4 0%, #3C83F9 100%);
     position: relative;
 }
@@ -150,22 +150,28 @@
     row-gap: 4rem;
 }
 
-.nav__links li a {
+.nav__links li p {
     color: var(--color-sidebar);
     font-family: var(--ff-mont);
     font-size: var(--fs-m);
     letter-spacing: 1px;
 }
 
-.nav__links li a.active {
+.nav__links li p.active {
     font-weight: 700;
 }
 
-.nav__links li a:hover {
-    color:var(--color-blue);
+.nav__links li p span img:hover {
+    filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(220deg);
 }
 
-.nav__links li a i {
+.nav__links li p:hover {
+    color :
+    #605BFF
+
+}
+
+.nav__links li p img {
     margin-right: 20px;
 }
 
@@ -432,11 +438,11 @@
 /* ======================Profile-Styles====================== */
 .pie__profile__container {
     width: 90%;
-    margin: 0 2rem;
+    /* margin: 0 2rem; */
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 2rem;
+    /* gap: 2rem; */
     /* position: relative; */
 }
 
@@ -699,6 +705,7 @@
 
     .sidebar__container.active {
         left: -15px;
+        border-radius: 20px;
         box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
     }
 
@@ -783,4 +790,56 @@
     margin-left: -2%;
     background:#fff ;
     color: grey;
+}
+
+table{
+    border-collapse: collapse;
+    margin: 20px auto;
+    width: 40%;
+}    
+
+th{
+    text-align: left;
+    background-color: #333;
+    color: #fff;
+    padding: 12px;
+}
+
+td{ padding: 12px }
+.out-of-stock{ background-color: #f44336; color: #fff;}
+
+.high-stock{ background-color: #8bc34a; color: #fff; }
+
+.medium-stock{ background-color: #ffa726; color: #fff; }
+
+.low-stock{ background-color: #ff7043; color: #fff; }
+.addCsv{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dottedBorder{
+   
+    height: 258px;
+    width: 564px;
+    border-style: dotted;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+.addImage{
+ 
+}
+.addBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.BtnInside{
+        width: 564px;
+        height: 56px;
+        background: #605BFF;
+        
 }
