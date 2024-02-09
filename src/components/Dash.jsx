@@ -6,12 +6,12 @@ import bell from "../assets/Bell.svg";
 import { signOut } from 'firebase/auth';
 import { auth } from '../firebase';
 import { useNavigate } from "react-router-dom";
-import user from "../assets/user.svg";
+import { FaUser } from "react-icons/fa";
 const Dash =()=>
 {
     
     const [isActive, setIsActive] = useState(false);
-
+  // const photoUrl =localStorage.getItem(photoUrl)
     const toggleSidebar = () => {
       const sidebarContainer = document.querySelector(".sidebar__container");
       sidebarContainer?.classList.toggle("active"); // Use optional chaining
@@ -44,7 +44,13 @@ const Dash =()=>
           </button>
   
           <div className="profile__icon">
-           <img src={user} alt="userimage"/>
+         
+            
+           
+             <FaUser/>
+         
+          
+          
   
             <ul
               className="profile__dropdown"

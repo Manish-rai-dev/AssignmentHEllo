@@ -8,12 +8,18 @@ import { Link, useNavigate } from 'react-router-dom';
 import {signInWithPopup} from "firebase/auth";
 
 const Form = () => {
+  const navigate=useNavigate();
   const [value,setValue] = useState('')
-
+  const[profile,setProfile] =useState('')
   const loginWithRedirect =()=>{
     signInWithPopup(auth,provider).then((data)=>{
       setValue(data.user.email)
+      setProfile(data.user.photoUrl)
+      localStorage.setItem("photoUrl",data.user.photoUrl)
       localStorage.setItem("email",data.user.email)
+      if (data && data.user && data.user.email) {
+        navigate("/dashboard");
+      }
   })
   }
   useEffect(()=>{
@@ -21,7 +27,7 @@ const Form = () => {
 })
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate=useNavigate();
+
 
 
   const validateForm = (email, password, confirmPassword) => {
@@ -69,6 +75,7 @@ const Form = () => {
         navigate("/dashboard");
     } catch (error) {
         console.error(error);
+        toast.error(error);
     }
 };
 

@@ -11,8 +11,8 @@ export default function UploadData() {
   const [loading, setLoading] = useState(false);
   const ref = useRef(null);
   const [error, setError] = useState(false);
-  // const acceptableFileTypes =
-  //   'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel, .csv';
+  const acceptableFileTypes =
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel, .csv';
 
   const handleClick = () => {
     if (ref.current) {
@@ -20,22 +20,22 @@ export default function UploadData() {
     }
   };
 
-  // const handleFileChange = (e) => {
-  //   // check file type
-  //   if (
-  //     e.target.files[0].type !==
-  //       'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' &&
-  //     e.target.files[0].type !== 'application/vnd.ms-excel' &&
-  //     e.target.files[0].type !== '.csv' &&
-  //     e.target.files[0].type !== 'text/csv'
-  //   ) {
-  //     removeFile();
-  //     setError(true);
-  //     return;
-  //   }
+  const handleFileChange = (e) => {
+    // check file type
+    if (
+      e.target.files[0].type !==
+        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' &&
+      e.target.files[0].type !== 'application/vnd.ms-excel' &&
+      e.target.files[0].type !== '.csv' &&
+      e.target.files[0].type !== 'text/csv'
+    ) {
+      removeFile();
+      setError(true);
+      return;
+    }
 
-  //   setFile(e.target.files[0]);
-  // };
+    setFile(e.target.files[0]);
+  };
 
   useEffect(() => {
     if (error) {
@@ -86,7 +86,21 @@ export default function UploadData() {
 
         }}
         >
+
         
+
+        <input
+        // only accept .xlsx and .csv files
+        type="file"
+        name="file"
+        id="fileInput"
+        
+        ref={ref}
+        accept={acceptableFileTypes}
+        onChange={(e) => handleFileChange(e)}
+        className="hidden"
+      />
+
           <img src={excel} alt="Excel logo" style={{height:"36px",width:"36px"}} />
           <p className="textFileUpload">
             {!file ? (
@@ -137,7 +151,7 @@ export default function UploadData() {
             <div className="rowUpload">
               <div className="columnDataUpload">
                 {parsedData[0].map((item, index) => (
-                  <h6
+                  <h4
                     key={index}
                     className={`${
                       index === 0 ? 'width2Rem' : ''
@@ -154,7 +168,7 @@ export default function UploadData() {
                     } tableContainerUpload`}
                   >
                     {item}
-                  </h6>
+                  </h4>
                 ))}
               </div>
               {parsedData.slice(1).map((item, index) => (
