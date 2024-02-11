@@ -4,7 +4,7 @@ import {auth,provider} from "../firebase";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import {signInWithPopup} from "firebase/auth";
 
 const Form = () => {
