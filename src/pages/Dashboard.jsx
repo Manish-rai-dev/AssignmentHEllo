@@ -7,14 +7,7 @@ import Page from "../pages/Upload/Page";
 
 
 const Dashboard = () => {
-  
-
-
-  
-
-
-
-  return (
+return (
     <>
       <div className="dashboard__container">
         <SideBar />

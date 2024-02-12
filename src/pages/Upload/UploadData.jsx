@@ -3,7 +3,7 @@ import excel from "../../assets/excel.svg";
 import Papa from "papaparse";
 import "./Upload.css";
 import { MdOutlineFileUpload } from "react-icons/md";
-import Spinner from "../Upload/Spinner.jsx";
+
 import RowData from "./RowData";
 export default function UploadData() {
   const [file, setFile] = useState(null);
@@ -133,7 +133,7 @@ export default function UploadData() {
           disabled={!file}
           className="handleUploadData"
         >
-          {loading && <Spinner />}
+          {loading }
           {!loading && (
             <>
               <MdOutlineFileUpload className="UploadText" />
